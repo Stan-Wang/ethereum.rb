@@ -97,7 +97,7 @@ module Ethereum
         gas_limit: gas_limit,
         gas_price: gas_price
       }
-      args << "latest"
+      args =[args,"latest"] 
       tx = Eth::Tx.new(args)
       tx.sign key
       eth_send_raw_transaction(tx.hex)["result"]
